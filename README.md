@@ -2,6 +2,8 @@
 
 A production-ready, cloud-native meal planning application that generates budget-aware, nutrition-accurate meal plans with explicit cost calculation at all levels.
 
+**🚀 Try it now on GitHub Spark:** This application is built with [GitHub Spark](https://githubnext.com/projects/spark/) and can be opened directly in your browser.
+
 ## 📁 Repository Structure
 
 ```
@@ -10,10 +12,17 @@ gurmaio/
 ├── ARCHITECTURE.md           # Technical Architecture & Design
 ├── IMPLEMENTATION.md         # Step-by-step Implementation Guide
 ├── README.md                 # This file
-└── src/                      # React Prototype (Demo UI)
+├── spark.meta.json           # GitHub Spark metadata configuration
+├── runtime.config.json       # Spark runtime settings
+├── .spark-initial-sha        # Initial commit reference
+├── vite.config.ts            # Vite configuration with Spark plugin
+├── package.json              # Dependencies including @github/spark
+└── src/                      # Application source code
     ├── components/           # UI Components
     ├── types/                # TypeScript Type Definitions
-    └── lib/                  # Utilities & Mock Data
+    ├── lib/                  # Utilities & Mock Data
+    ├── hooks/                # Custom React hooks
+    └── styles/               # CSS and styling
 ```
 
 ## 🎯 Project Overview
@@ -61,15 +70,32 @@ Step-by-step implementation guide covering:
 - Flutter client integration
 - Testing & deployment
 
-## 🚀 Quick Start (React Prototype)
+## 🚀 Quick Start
 
-This repository includes a working React prototype demonstrating the Gurmaio UI and user experience.
+### Option 1: Open in GitHub Spark (Recommended)
 
-### Prerequisites
+This application is built with GitHub Spark and can be opened directly in your browser without any local setup.
+
+**How to open in Spark:**
+1. Visit the repository on GitHub
+2. Look for the "Open in Spark" button (if available in your Spark preview)
+3. Alternatively, Spark applications are typically accessible through the GitHub Spark platform
+
+Once opened in Spark:
+- Sign in with your GitHub account
+- Complete the onboarding flow with your preferences
+- Start generating personalized meal plans immediately
+- All data is automatically saved to your account
+
+### Option 2: Local Development
+
+For local development and customization:
+
+#### Prerequisites
 - Node.js 18+
 - npm
 
-### Installation
+#### Installation
 
 ```bash
 # Install dependencies
@@ -77,16 +103,52 @@ npm install
 
 # Start development server
 npm run dev
+
+# Build for production
+npm run build
 ```
 
-### Features Demonstrated
+### Features Available in Spark
+- ✅ User authentication (GitHub OAuth)
 - ✅ User onboarding flow
 - ✅ Budget and dietary preference configuration
 - ✅ Meal plan generation (with mock data)
 - ✅ Multi-day meal plan visualization
 - ✅ Nutrition and cost breakdowns at all levels
 - ✅ Shopping list aggregation
+- ✅ Meal plan persistence and history
+- ✅ Meal ratings and substitutions
+- ✅ Calendar scheduling and progress tracking
 - ✅ Responsive design (mobile & desktop)
+
+## 💡 About GitHub Spark
+
+This application is built with [GitHub Spark](https://githubnext.com/projects/spark/), which provides:
+
+- **Instant Deployment**: No build or deployment steps needed
+- **Built-in Authentication**: GitHub OAuth integration
+- **Data Persistence**: Key-value store for user data
+- **No Server Required**: Runs entirely in the browser
+- **Real-time Updates**: Instant feedback and state management
+
+### Spark Integration
+
+The application uses the following Spark features:
+
+- **Spark KV Storage**: A key-value store that persists data to your GitHub account
+  - Accessed via `useKV` React hook for state management
+  - Also accessible via `window.spark.kv` API for direct operations
+  - Both interfaces access the same underlying storage system
+  - Data includes: meal plans, user profiles, shopping lists, ratings, and progress tracking
+- **Spark Authentication**: GitHub OAuth authentication via `window.spark.user()`
+  - Automatic login with your GitHub account
+  - User profile information and avatar
+  - Secure session management
+
+All configuration is in:
+- `spark.meta.json` - Spark metadata and template configuration
+- `runtime.config.json` - Runtime application ID and settings
+- `vite.config.ts` - Spark Vite plugin integration
 
 ## 🏗️ Production Implementation
 

@@ -76,8 +76,16 @@ Step-by-step implementation guide covering:
 
 This application is built with GitHub Spark and can be opened directly in your browser without any local setup.
 
-1. Open this repository in GitHub Spark to start using the application immediately
-2. The application includes user authentication, data persistence, and all features
+**How to open in Spark:**
+1. Visit the repository on GitHub
+2. Look for the "Open in Spark" button (if available in your Spark preview)
+3. Alternatively, Spark applications are typically accessible through the GitHub Spark platform
+
+Once opened in Spark:
+- Sign in with your GitHub account
+- Complete the onboarding flow with your preferences
+- Start generating personalized meal plans immediately
+- All data is automatically saved to your account
 
 ### Option 2: Local Development
 
@@ -127,9 +135,15 @@ This application is built with [GitHub Spark](https://githubnext.com/projects/sp
 
 The application uses the following Spark features:
 
-- **useKV Hook**: For persistent data storage (meal plans, user profiles, shopping lists)
-- **Spark Auth**: GitHub OAuth authentication via `window.spark.user()`
-- **Spark KV Store**: Client-side data persistence with `window.spark.kv`
+- **Spark KV Storage**: A key-value store that persists data to your GitHub account
+  - Accessed via `useKV` React hook for state management
+  - Also accessible via `window.spark.kv` API for direct operations
+  - Both interfaces access the same underlying storage system
+  - Data includes: meal plans, user profiles, shopping lists, ratings, and progress tracking
+- **Spark Authentication**: GitHub OAuth authentication via `window.spark.user()`
+  - Automatic login with your GitHub account
+  - User profile information and avatar
+  - Secure session management
 
 All configuration is in:
 - `spark.meta.json` - Spark metadata and template configuration
